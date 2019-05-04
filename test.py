@@ -12,7 +12,7 @@ import matplotlib as mpl
 mpl.style.use("seaborn")
 
 
-BUDGET = 1_000
+BUDGET = 1000
 
 
 def main():
@@ -42,7 +42,8 @@ def main():
     plt.figure(figsize=(10, 10))
     plt.plot(np.log10(performance))
     # plt.plot(performance)
-    plt.show()
+    # plt.show()
+    plt.savefig("rosenbrock.png", dpi=200)
 
 
 if __name__ == "__main__":
