@@ -6,6 +6,7 @@ install:
 - pip install matplotlib
 script:
 - python test.py
+- chmod +x deploy.sh
 - ./deploy.sh
 env:
   global:
