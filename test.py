@@ -24,7 +24,8 @@ def main():
 
     # initialize optimization algorithm object
     initstate = 10 * (np.random.rand(2, 1) - 1)[:, 0]
-    gd = StupidGradientDescent(0.0001, initstate, fr.grad)
+    # gd = StupidGradientDescent(0.0001, initstate, fr.grad)
+    gd = SmarterGradientDescent(0.00001, initstate, fr.grad)
 
     # numpy array for logging
     performance = np.zeros((BUDGET,))

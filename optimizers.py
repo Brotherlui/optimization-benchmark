@@ -8,10 +8,21 @@ import numpy as np
 
 class StupidGradientDescent:
 
-    def __init__(self, alpha, initstate, fgrad):
-        self.state = initstate
+    def __init__(self, alpha, state, fgrad):
+        self.state = state
         self.alpha = alpha
         self.fgrad = fgrad
 
     def step(self):
         self.state -= self.alpha * self.fgrad(self.state[0], self.state[1])
+
+
+class SmarterGradientDescent:
+
+    def __init__(self, alpha, state, fgrad):
+        self.state = state
+        self.alpha = alpha
+        self.fgrad = fgrad
+
+    def step(self):
+        self.state -= self.alpha * self.fgrad(self.state)

@@ -16,3 +16,6 @@ class Rosenbrock:
 
     def grad(self, x, y):
         return np.array([-2. * (self.a - x), 0.]) + 2. * self.b * (y - x**2.) * np.array([-2. * x, 1.])
+
+    def grad_uni(self, params):
+        return np.array([-2. * (self.a - params[0]), 0.]) + 2. * self.b * (params[1] - params[0]**2.) * np.array([-2. * params[0], 1.])
