@@ -35,8 +35,8 @@ def main():
         gd.step()
 
         # evaluate the function at the new point in parameter space
-        # print(f"\r{fr.eval(gd.state[0], gd.state[1])}  {gd.state}", end="")
-        performance[i] = fr.eval(gd.state[0], gd.state[1])
+        # performance[i] = fr.eval(gd.state[0], gd.state[1])
+        performance[i] = fr.evaluate(gd.state)
 
     # print()
 
