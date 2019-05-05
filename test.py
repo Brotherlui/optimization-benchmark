@@ -27,25 +27,28 @@ def main():
     # initialize optimization algorithm object
     initstate = 10 * (np.random.rand(2, 1) - 1)[:, 0]
     # gd = StupidGradientDescent(0.0001, initstate, fr.grad)
-    gd = SmarterGradientDescent(0.00001, initstate, fr.gradient)
+    gd = SmarterGradientDescent(0.0001, initstate, fr.gradient)
+    mgd = Momentum_GD(0.0001, 0.0001, initstate, fr.gradient)
 
     # numpy array for logging
-    performance = np.zeros((BUDGET,))
+    performance_gd = np.zeros((BUDGET,))
+    performance_mgd = np.zeros((BUDGET,))
 
     for i in range(BUDGET):
         # take a radient step with constant alpha
         gd.step()
+        mgd.step()
 
         # evaluate the function at the new point in parameter space
         # performance[i] = fr.eval(gd.state[0], gd.state[1])
-        performance[i] = fr.evaluate(gd.state)
+        performance_gd[i] = fr.evaluate(gd.state)
+        performance_mgd[i] = fr.evaluate(mgd.state)
 
     # print()
 
     plt.figure(figsize=(10, 10))
-    plt.plot(np.log10(performance))
-    # plt.plot(performance)
-    # plt.show()
+    plt.plot(np.log10(performance_gd))
+    plt.plot(np.log10(performance_mgd))
     plt.savefig("rosenbrock.png", dpi=200)
 
 
