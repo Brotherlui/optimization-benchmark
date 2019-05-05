@@ -4,9 +4,7 @@ This is a module containing a test of the gradient method.
 
 
 import numpy as np
-from optimizers import StupidGradientDescent
-from optimizers import SmarterGradientDescent
-
+import optimizers
 from functions import Rosenbrock
 
 import matplotlib.pyplot as plt
@@ -26,9 +24,9 @@ def main():
 
     # initialize optimization algorithm object
     initstate = 10 * (np.random.rand(2, 1) - 1)[:, 0]
-    # gd = StupidGradientDescent(0.0001, initstate, fr.grad)
-    gd = SmarterGradientDescent(0.0001, initstate, fr.gradient)
-    mgd = Momentum_GD(0.0001, 0.0001, initstate, fr.gradient)
+    # gd = optimizers.StupidGradientDescent(0.0001, initstate, fr.grad)
+    gd = optimizers.SmarterGradientDescent(0.0001, initstate, fr.gradient)
+    mgd = optimizers.Momentum_GD(0.0001, 0.001, initstate, fr.gradient)
 
     # numpy array for logging
     performance_gd = np.zeros((BUDGET,))
