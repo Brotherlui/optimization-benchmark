@@ -5,6 +5,8 @@ This is a module containing a test of the gradient method.
 
 import numpy as np
 from optimizers import StupidGradientDescent
+from optimizers import SmarterGradientDescent
+
 from functions import Rosenbrock
 
 import matplotlib.pyplot as plt
